@@ -2,7 +2,6 @@ package ru.netology.web;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import org.apache.commons.io.file.DeleteOption;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -19,11 +18,11 @@ public class CardDeliveryTest {
     }
 
     @Test
-    void shouldSendForm() {
+    void shouldSendFormSuccessful() {
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $("[data-test-id=city] input").setValue("Москва");
-        String currentDate = generateDate(5, "dd.MM.yyyy");
+        String currentDate = generateDate(3, "dd.MM.yyyy");
         $("[data-test-id=date] input").doubleClick().sendKeys(Keys.DELETE);
         $("[data-test-id=date] input").sendKeys(currentDate);
         $("[data-test-id=name] input").setValue("Иван Иванов");
